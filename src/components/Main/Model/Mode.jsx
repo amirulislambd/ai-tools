@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Mode = ({model}) => {
+
+
+    const [isSubscribe, setIsSubscribe]=useState('')
+
     return (
         <div className='border border-zinc-200 rounded-xl overflow-hidden shadow-lg'>
             <div className='flex justify-center items-center  bg-zinc-200  h-57'>
@@ -14,7 +18,7 @@ const Mode = ({model}) => {
             <p>{model.description}</p>
             <p className='text-2xl font-bold'>Price: ${model.price}</p>
 
-            <button className='btn w-full bg-red-500 text-white rounded-full mb-5'>Subscribe Now</button>
+            <button onClick={()=>setIsSubscribe('subscribe')} className='btn w-full bg-red-500 text-white rounded-full mb-5'>{isSubscribe==='subscribe' ? 'Subscribe':'Subscribe Now'}</button>
             </div>
         </div>
     );
