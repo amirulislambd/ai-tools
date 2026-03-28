@@ -3,7 +3,8 @@ import { useState } from "react";
 const NavBar = () => {
     const [active,setActive]=useState('home')
   return (
-    <div className="flex items-center justify-between container mx-auto">
+    <div className="shadow md:py-5 sticky top-0 bg-white z-10">
+        <div className="flex items-center justify-between container mx-auto ">
       <div>
         <img className="w-20" src="/logo.png" alt="" />
       </div>
@@ -26,6 +27,7 @@ const NavBar = () => {
       <div>
         <button className="btn bg-red-500 text-white">Get In Touch</button>
       </div>
+    </div>
     </div>
   );
 };
