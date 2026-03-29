@@ -1,14 +1,21 @@
 import React from "react";
+import { Bounce, toast } from "react-toastify";
 
 const Cart = ({ getModel,setGetModel }) => {
   const total = getModel.reduce((sum, current) => sum + current.price, 0);
 
-  const handleDeleteAll =()=>{
+  const handlePayment =()=>{
     setGetModel([])
+    toast.success('Payment success',{
+        position: "top-center",
+    })
   }
 const handleDelete=(item)=>{
     const filterArr = getModel.filter(i=> i.id !==item.id)
     setGetModel(filterArr)
+    toast.error('Delete model',{
+        position: "top-center",
+    })
 }
   console.log(total);
   return (
@@ -39,13 +46,13 @@ const handleDelete=(item)=>{
                 </div>
               </div>
             ))}
-            <div className="flex items-center justify-between bg-black text-white rounded-lg p-4 my-2 md:my-5">
-              <h1 className="text-2xl font-bold">Total</h1>
-              <p className="text-2xl font-bold">${total}</p>
+            <div className="flex items-center justify-between bg-black text-white rounded-lg p-2 md:p-4 my-2 md:my-5">
+              <h1 className="md:text-2xl font-bold">Total</h1>
+              <p className="md:text-2xl font-bold">${total}</p>
 
             </div>
           </div>
-            <button onClick={handleDeleteAll} className="btn btn-xl w-full  bg-red-500 text-white rounded-xl text-2xl mb-5">Prosed To CheckOut</button>
+            <button onClick={handlePayment} className="btn md:btn-xl w-full  bg-red-500 text-white rounded-xl md:text-2xl mb-5">Prosed To CheckOut</button>
         </div>
       )}
     </div>

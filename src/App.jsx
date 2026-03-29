@@ -20,7 +20,10 @@ function App() {
     <>
       <NavBar />
       <Banner />
-      <Tabs activePage={activePage} setActivePage={setActivePage} />
+      <Tabs
+        setActivePage={setActivePage}
+        getModel={getModel}
+      />
 
       {activePage === "model" ? (
         <Models
@@ -29,10 +32,7 @@ function App() {
           setGetModel={setGetModel}
         />
       ) : (
-        <Cart
-          getModel={getModel}
-          setGetModel={setGetModel}
-        />
+        <Cart getModel={getModel} setGetModel={setGetModel} />
       )}
       <Footer />
     </>

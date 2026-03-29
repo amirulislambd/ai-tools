@@ -34,7 +34,7 @@ const Banner = () => {
           <div>
           <img
             src={bannerImg}
-            className=" max-w-sm rounded-lg drop-shadow-2xl animate-pulse"
+            className=" md:max-w-sm rounded-lg drop-shadow-2xl animate-pulse"
           />
 
           </div>

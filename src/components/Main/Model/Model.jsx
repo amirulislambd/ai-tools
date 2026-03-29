@@ -1,12 +1,23 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
-const Model = ({ model,getModel, setGetModel }) => {
+const Model = ({ model, getModel, setGetModel }) => {
   const [isSubscribe, setIsSubscribe] = useState("");
 
-  const handleSubscribe=()=>{
-    setIsSubscribe("subscribe")
-    setGetModel([...getModel,model])
-  }
+  const handleSubscribe = () => {
+    setIsSubscribe("subscribe");
+    toast.success("Thanks for to subscribe", {
+      position: "top-center",
+    });
+
+    const isFound = getModel.find((item) => item.id === model.id);
+    if (isFound) {
+      toast.warning("This model is already append!");
+      return;
+    }
+
+    setGetModel([...getModel, model]);
+  };
 
   return (
     <div className="border border-zinc-200 rounded-xl overflow-hidden shadow-lg">
