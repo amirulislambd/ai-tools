@@ -13,7 +13,7 @@ const Cart = ({ getModel,setGetModel }) => {
 const handleDelete=(item)=>{
     const filterArr = getModel.filter(i=> i.id !==item.id)
     setGetModel(filterArr)
-    toast.error('Delete model',{
+    toast.error('Delete model from Cart',{
         position: "top-center",
     })
 }
@@ -21,8 +21,8 @@ const handleDelete=(item)=>{
   return (
     <div className="max-w-7xl mx-auto">
       {getModel.length === 0 ? (
-        <div className="flex flex-col items-center justify-center">
-          <h1>No Model</h1>
+        <div className="flex flex-col items-center justify-center py-20">
+          <h1 className="text-2xl font-bold">No Model</h1>
           <p>Please Select your model</p>
         </div>
       ) : (

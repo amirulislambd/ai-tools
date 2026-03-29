@@ -6,11 +6,11 @@ const Models = ({ responseData, getModel, setGetModel }) => {
 //   console.log(data);
   return (
     <div className="max-w-7xl mx-auto ">
-      <div className="text-center">
-        <h1 className="text-2xl md:text-3xl font-bold ">
+      <div className="text-center space-y-2">
+        <h1 className="text-xl md:text-5xl font-bold ">
           Choose Your AI Model
         </h1>
-        <p className="text-zinc-500">
+        <p className="text-zinc-500 text-sm md:text-lg">
           on subscription gives you access to all frontier ai model
         </p>
       </div>
