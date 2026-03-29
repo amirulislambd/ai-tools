@@ -14,6 +14,8 @@ const dataFetch = async () => {
 const responseData = dataFetch();
 function App() {
   const [activePage, setActivePage] = useState("model");
+  const [getModel, setGetModel] = useState([]);
+  console.log(getModel)
   return (
     <>
       <NavBar />
@@ -21,9 +23,13 @@ function App() {
       <Tabs activePage={activePage} setActivePage={setActivePage} />
 
       {activePage === "model" ? (
-        <Models responseData={responseData} />
+        <Models
+          responseData={responseData}
+          getModel={getModel}
+          setGetModel={setGetModel}
+        />
       ) : (
-        <Cart />
+        <Cart getModel={getModel}/>
       )}
       <Footer />
     </>
