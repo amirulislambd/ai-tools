@@ -15,7 +15,7 @@ const responseData = dataFetch();
 function App() {
   const [activePage, setActivePage] = useState("model");
   const [getModel, setGetModel] = useState([]);
-  console.log(getModel)
+  console.log(getModel);
   return (
     <>
       <NavBar />
@@ -29,7 +29,10 @@ function App() {
           setGetModel={setGetModel}
         />
       ) : (
-        <Cart getModel={getModel}/>
+        <Cart
+          getModel={getModel}
+          setGetModel={setGetModel}
+        />
       )}
       <Footer />
     </>

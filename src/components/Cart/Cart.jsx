@@ -1,7 +1,15 @@
 import React from "react";
 
-const Cart = ({ getModel }) => {
+const Cart = ({ getModel,setGetModel }) => {
   const total = getModel.reduce((sum, current) => sum + current.price, 0);
+
+  const handleDeleteAll =()=>{
+    setGetModel([])
+  }
+const handleDelete=(item)=>{
+    const filterArr = getModel.filter(i=> i.id !==item.id)
+    setGetModel(filterArr)
+}
   console.log(total);
   return (
     <div className="max-w-7xl mx-auto">
@@ -27,15 +35,17 @@ const Cart = ({ getModel }) => {
                     ${item.price}{" "}
                     <span className="hidden md:block">/month</span>{" "}
                   </p>
-                  <button className="text-2xl btn btn-circle">x</button>
+                  <button onClick={()=>handleDelete(item)} className="text-2xl btn btn-circle">x</button>
                 </div>
               </div>
             ))}
-            <div className="flex items-center justify-between bg-black text-white rounded-lg p-5 my-5">
+            <div className="flex items-center justify-between bg-black text-white rounded-lg p-4 my-2 md:my-5">
               <h1 className="text-2xl font-bold">Total</h1>
               <p className="text-2xl font-bold">${total}</p>
+
             </div>
           </div>
+            <button onClick={handleDeleteAll} className="btn btn-xl w-full  bg-red-500 text-white rounded-xl text-2xl mb-5">Prosed To CheckOut</button>
         </div>
       )}
     </div>
